@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ControllerAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({AllthepreachingApiException.class})
-    public ResponseEntity<Void> handleSubtitleFtsException(AllthepreachingApiException ex, WebRequest request){
+    public ResponseEntity<Void> handleSubtitleFtsException(AllthepreachingApiException ex, WebRequest request) {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
