@@ -6,7 +6,7 @@ import com.allthepreaching.api.v1.populator.ModelToDtoPopulator;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VideoModelToDtoPopulator implements ModelToDtoPopulator<VideoModel, VideoDto> {
+public class VideoModelToVideoDtoPopulator implements ModelToDtoPopulator<VideoModel, VideoDto> {
 
     @Override
     public VideoDto populate(VideoModel source, VideoDto destination) {

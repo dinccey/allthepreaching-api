@@ -2,18 +2,9 @@ package com.allthepreaching.api.v1.controller;
 
 import com.allthepreaching.api.v1.dto.VideoDto;
 import com.allthepreaching.api.v1.service.VideoService;
-import jakarta.websocket.server.PathParam;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/videos")
@@ -32,9 +23,9 @@ public class VideosController {
         return videoService.getAllVideos(PageRequest.of(page, numResults));
     }
 
-    @GetMapping("/{preacher}")
-    public Page<VideoDto> getAllVideosByPreacher(@PathParam(value = "preacher") String preacher, @RequestParam(name = "numResults", defaultValue = "20") int numResults, @RequestParam(name = "page", defaultValue = "0") int page) {
+    @GetMapping("/{vidCategory}")
+    public Page<VideoDto> getAllVideosByPreacher(@RequestParam(name = "numResults", defaultValue = "20") int numResults, @RequestParam(name = "page", defaultValue = "0") int page, @PathVariable String vidCategory) {
 
-        return videoService.getAllVideosByPreacher(preacher, PageRequest.of(page, numResults));
+        return videoService.getAllVideosByPreacher(vidCategory, PageRequest.of(page, numResults));
     }
 }

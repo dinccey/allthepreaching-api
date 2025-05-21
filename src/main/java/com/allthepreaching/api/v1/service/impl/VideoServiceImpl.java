@@ -27,8 +27,8 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Page<VideoDto> getAllVideosByPreacher(String videoPreacher, Pageable pageable) {
-        Page<VideoModel> videoModels = videoRepository.findAllByVidPreacherContainingOrderByDateDesc(videoPreacher, pageable);
+    public Page<VideoDto> getAllVideosByPreacher(String vidCategory, Pageable pageable) {
+        Page<VideoModel> videoModels = videoRepository.findAllByVidCategoryContainingOrderByDateDesc(vidCategory, pageable);
         return videoModels.map(videoModel -> modelToDtoPopulator.populate(videoModel, new VideoDto()));
     }
 }
