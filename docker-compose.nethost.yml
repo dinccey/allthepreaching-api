@@ -1,0 +1,16 @@
+version: '3.9'
+#deploy with: docker compose up -d
+services:
+  app-be:
+    image: 'vaslim/allthepreaching-api'
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    network_mode: host
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE} #active profile, one of: local, dev, prod
+      - DATASOURCE_URL=${DATASOURCE_URL}
+      - DATASOURCE_USERNAME=${DATASOURCE_USERNAME}
+      - DATASOURCE_PASSWORD=${DATASOURCE_PASSWORD} #connect to allthepreaching database
+    restart: always
