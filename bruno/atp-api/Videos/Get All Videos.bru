@@ -1,0 +1,16 @@
+meta {
+  name: Get All Videos
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{host}}/api/v1/videos/all?numResults=20&page=1
+  body: json
+  auth: inherit
+}
+
+params:query {
+  numResults: 20
+  page: 1
+}

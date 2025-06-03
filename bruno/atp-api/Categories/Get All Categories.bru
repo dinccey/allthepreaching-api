@@ -1,0 +1,16 @@
+meta {
+  name: Get All Categories
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{host}}/api/v1/categories/all?numResults=10&page=1
+  body: json
+  auth: inherit
+}
+
+params:query {
+  numResults: 10
+  page: 1
+}

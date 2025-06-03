@@ -1,0 +1,20 @@
+meta {
+  name: Get All Videos By Preacher
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}/api/v1/videos/:vidCategory?numResults=20&page=1
+  body: json
+  auth: inherit
+}
+
+params:query {
+  numResults: 20
+  page: 1
+}
+
+params:path {
+  vidCategory: fsawes
+}
